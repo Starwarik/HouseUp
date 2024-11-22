@@ -1,4 +1,4 @@
-from tables import session
+from app import session
 from sqlalchemy import and_
 
 # get

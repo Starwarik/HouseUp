@@ -1,7 +1,5 @@
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, JSON
-from sqlalchemy.orm import sessionmaker, declarative_base, relationship
-
-Base = declarative_base()
+from sqlalchemy.orm import relationship
 
 class User(Base):
 	__tablename__ = 'users'
@@ -24,12 +22,3 @@ class UserScenario(Base):
 	name = Column(String)
 	content = Column(JSON)
 	user = relationship('User', backref='user_scenarios')
-
-engine = create_engine('sqlite:///database.db')
-Base.metadata.create_all(engine)
-
-Session = sessionmaker(bind=engine)
-session = Session()
-
-#for table in Base.metadata.tables:
-#	print(table)
