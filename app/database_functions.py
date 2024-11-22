@@ -21,9 +21,9 @@ def get_user_scenarios(session, name):
 		return scenarios
 	return None
 
-# put
+# post
 
-def put_user(session, user_name, password):
+def post_user(session, user_name, password):
 	if not get_user(session, user_name):
 		new_user = tables.User(name=user_name, password=password)
 		session.add(new_user)
@@ -31,7 +31,7 @@ def put_user(session, user_name, password):
 		return True
 	return False
 
-def put_user_scenario(session, user_name, scenario_name, scenario_content):
+def post_user_scenario(session, user_name, scenario_name, scenario_content):
 	scenarios = get_user_scenarios(session, user_name)
 	for scenario in scenarios:
 		if scenario.name == scenario_name:
@@ -41,7 +41,7 @@ def put_user_scenario(session, user_name, scenario_name, scenario_content):
 	session.commit()
 	return True
 
-def put_user_device(session, user_name, device_name, device_type, device_settings):
+def post_user_device(session, user_name, device_name, device_type, device_settings):
 	devices = get_user_devices(session, user_name)
 	for device in devices:
 		if device.name == device_name:

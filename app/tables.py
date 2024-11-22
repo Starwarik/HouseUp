@@ -1,5 +1,7 @@
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, JSON
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String, ForeignKey, JSON
+from sqlalchemy.orm import relationship, declarative_base
+
+Base = declarative_base()
 
 class User(Base):
 	__tablename__ = 'users'
