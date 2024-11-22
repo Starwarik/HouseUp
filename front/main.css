@@ -18,7 +18,7 @@
     background-color: #fefefe;
     margin: 5px auto; /* 15% from the top and centered */
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 57.9%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -56,6 +56,33 @@
 }
 
 img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
+}
+
+.rasselstudio{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
