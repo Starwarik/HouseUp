@@ -31,3 +31,5 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
+#for table in Base.metadata.tables:
+#	print(table)
