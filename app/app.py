@@ -1,15 +1,11 @@
-from fastapi import FastAPI
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from tables import Base
+from fastapi import FastAPI, Form, Depends
+from database_functions import *
 
-DATABASE_URL = 'sqlite:///database.db'
+app = FastAPI()
 
-engine = create_engine(DATABASE_URL)
-Base.metadata.create_all(engine)
+@app.post("/api/login")
+def user_signin(user_name: str = Form(...), password: str = Form(...), session: Session = Depends(get_session)):
+    user = get_user(session, user_name)
+    if user:
+        
 
-Session = sessionmaker(bind=engine)
-session = Session()
-
-#for table in Base.metadata.tables:
-#	print(table)

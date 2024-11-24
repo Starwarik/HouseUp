@@ -1,7 +1,15 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, JSON
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, JSON
+from sqlalchemy.orm import sessionmaker, relationship, declarative_base
+
+DATABASE_URL = 'sqlite:///database.db'
 
 Base = declarative_base()
+
+engine = create_engine(DATABASE_URL)
+Base.metadata.create_all(engine)
+
+Session = sessionmaker(bind=engine)
+session = Session()
 
 class User(Base):
 	__tablename__ = 'users'

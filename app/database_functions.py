@@ -1,7 +1,15 @@
-from app import session
+import tables
+from tables import session
 from sqlalchemy import and_
 
 # get
+
+def get_session():
+    session = Session()
+    try:
+        yield session
+    finally:
+        session.close()
 
 def get_user(session, name):
 	user = session.query(tables.User).filter_by(name=name).first()
